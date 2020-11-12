@@ -33,7 +33,7 @@ switch(BitsDepth)
     case 16
         inXYZFrames = lsci_ReaderFramesToMatrix(InputFile, StartFrame, EndFrame, 'uint16'); % convert to uint16        
     otherwise
-        frintf('\n\nUnsupported bits depth  --> Bits Depth = %d\n', BitsDepth);
+        fprintf('\n\nUnsupported bits depth  --> Bits Depth = %d\n', BitsDepth);
         error('Exit due to error!');
 end
 
@@ -111,7 +111,7 @@ switch(EntropyEstimator)
     case 'Balanced'
         rtrnXYZLSPEntropy = eLASEASBalanced(InXYZFrames, ZWindowSizePx, BitsDepth);
     otherwise
-        frintf('\n\nUnsupported entropy estimator method --> %s\n', EntropyEstimator);
+        fprintf('\n\nUnsupported entropy estimator method --> %s\n', EntropyEstimator);
         error('Exit due to error!');
 end
 
