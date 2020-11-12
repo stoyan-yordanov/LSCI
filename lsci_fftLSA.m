@@ -227,8 +227,8 @@ elapsedTime = toc(startTime);
 
 fprintf('\n\nEnd of processing --> Start Frame = %d, End Frame = %d\n', StartFrame, EndFrame); % show progress
 fprintf('Statistics --> Max Freq Ampl = %f, Mean Freq Ampl = %f\n', max(fftAbsSignal1Z), mean(fftAbsSignal1Z)); % show stat
-fprintf('Statistics Pixel[%d, %d] --> V (single flow) = %.3f ± %.3f [mm/s]\n', pixY, pixX, vMmps.value, (vMmps.upper - vMmps.lower)/2); % show stat
-fprintf('Statistics Pixel[%d, %d] --> V0 = %.3f ± %.3f [mm/s], Vd = %.3f ± %.3f [mm/s]\n', pixY, pixX, v0Mmps.value, (v0Mmps.upper - v0Mmps.lower)/2, vdMmps.value, (vdMmps.upper - vdMmps.lower)/2); % show stat
+fprintf('Statistics Pixel[%d, %d] --> V (single flow) = %.3f Â± %.3f [mm/s]\n', pixY, pixX, vMmps.value, (vMmps.upper - vMmps.lower)/2); % show stat
+fprintf('Statistics Pixel[%d, %d] --> V0 = %.3f Â± %.3f [mm/s], Vd = %.3f Â± %.3f [mm/s]\n', pixY, pixX, v0Mmps.value, (v0Mmps.upper - v0Mmps.lower)/2, vdMmps.value, (vdMmps.upper - vdMmps.lower)/2); % show stat
 fprintf('Processing time = %f [sec]\n\n', elapsedTime);
 
 end
@@ -243,7 +243,7 @@ switch(NumericalMethod)
     case 'xcov' % calc using buit in matalb covariance xcov() function
         rtrnCtTauXYZ = tAutoCovarianceXcov(InXYZFrames, ZWindowSizeFrames);
     otherwise
-        frintf('\n\nUnsupported numerical method: %s\', NumericalMethod);
+        fprintf('\n\nUnsupported numerical method: %s\', NumericalMethod);
         error('Exit due to the above error!');
 end
 
@@ -264,7 +264,7 @@ fprintf('\nProgress, calc Ct(tau) by FFT: 000.0 [%%] | 00000.0 [sec]');
 iZBegin = 1;
 for iZ = 1:fitLengthZ % loop as many times as ZWindowSizeFrames fits in all available frames
     startTime = tic;
-    % Calc autocovariance Ct(tau) = <I°(t)I(t+tau)> - <I>^2
+    % Calc autocovariance Ct(tau) = <IÂ°(t)I(t+tau)> - <I>^2
     for iX = 1:lengthX % loop through image height
         for iY = 1:lengthY % loop through image width
             subFrame = InXYZFrames(iX, iY, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
@@ -333,7 +333,7 @@ fprintf('\nProgress, calc Cxy(tau) by FFT: 000.0 [%%] | 00000.0 [sec]');
 for iZ = 1:ZWindowSizeFrames % average over the window size
     startTime = tic;    
     
-    % Calc autocovariance Cs(X,Y) = <I°(X,Y)I(X+X0,Y+Y0)> - <I>^2    
+    % Calc autocovariance Cs(X,Y) = <IÂ°(X,Y)I(X+X0,Y+Y0)> - <I>^2    
     subFrame = InXYZFrames(:, :, iZ); % extract subframe given by the window size
     subFrame = subFrame(:);
     
@@ -361,7 +361,7 @@ switch(NumericalMethod)
     case 'xcov' % calc using buit in matalb covariance xcov() function
         rtrnCstTauXYZ = stCrossCovarianceXcov(InXYZFrames, ZWindowSizeFrames, PixX1, PixY1, PixX2, PixY2);
     otherwise
-        frintf('\n\nUnsupported numerical method: %s\', NumericalMethod);
+        fprintf('\n\nUnsupported numerical method: %s\', NumericalMethod);
         error('Exit due to the above error!');
 end
 
@@ -381,7 +381,7 @@ fprintf('\nProgress, calc Ct(X1Y1, X2Y2, tau) by FFT: 000.0 [%%] | 00000.0 [sec]
 iZBegin = 1;
 for iZ = 1:fitLengthZ % loop as many times as ZWindowSizeFrames fits in all available frames
     startTime = tic;    
-    % Calc crosscovariance Ct(tau) = <I1°(t)I2(t+tau)> - <I1><I2>
+    % Calc crosscovariance Ct(tau) = <I1Â°(t)I2(t+tau)> - <I1><I2>
     subFrame1 = InXYZFrames(PixX1, PixY1, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
     subFrame2 = InXYZFrames(PixX2, PixY2, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
     subFrame1 = subFrame1(:);
@@ -421,7 +421,7 @@ fprintf('\nProgress, calc Ct(X1Y1, X2Y2, tau) by xcov(): 000.0 [%%] | 00000.0 [s
 iZBegin = 1;
 for iZ = 1:fitLengthZ % loop as many times as ZWindowSizeFrames fits in all available frames
     startTime = tic;    
-    % Calc crosscovariance Ct(tau) = <I1°(t)I2(t+tau)> - <I1><I2>
+    % Calc crosscovariance Ct(tau) = <I1Â°(t)I2(t+tau)> - <I1><I2>
     subFrame1 = InXYZFrames(PixX1, PixY1, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
     subFrame2 = InXYZFrames(PixX2, PixY2, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
     %subFrame = permute(subFrame, [3, 1, 2]);
