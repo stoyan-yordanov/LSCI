@@ -96,7 +96,7 @@ switch(NumericalMethod)
     case 'ConvFilter' % Fastest speed
         rtrnXYZLSPContrast = stLASCAConvFilter(InXYZFrames, XYWindowSizePx, ZWindowSizePx);
     otherwise
-        frintf('\n\nUnsupported numerical method --> %s\n', NumericalMethod);
+        fprintf('\n\nUnsupported numerical method --> %s\n', NumericalMethod);
         error('Exit due to error!');
 end
 
