@@ -18,13 +18,13 @@ The LSCI Toolbox was written by me for a scientific article in order to process 
 
 ## Requirements
 
+Download the repository to your PC (use the green button in the upper right). Unzip to desired directory. You need to add the root directory and its subdirectories to your Matlab path in order to use the functions.
+
 The toolbox was written and tested with Matlab 2019a (Windows 10, x64). To run the functions in the toolbox you must have the following Matlab Toolboxes installed:
 - Optimization Toolbox
 - Image Processing Toolbox
 - Curve Fitting Toolbox
 - Signal Processing Toolbox
-
-You need to add the root directory and its subdirectories to your Matlab path in order to use the functions.
 
 If you use big 3D stacks you will need a PC with enough RAM to load and process the stacks. RAM with 32 GB will allow to comfortably work with big stacks of images. A stack of 1000 images with size of 1000x1000 px and 16-bit depth with occupy in the RAM 2 GB. Note also that the toolbox produces output stacks for K map, tc map, V map, which are almost as big as the input stack size. Thus, the RAM usage will increase 4x, plus Matlab, the OS, the open applications will occupy additional space (few GB). Therefore, loading and processing big chunks of data might be a problem on low RAM PCs. In case of problems, to fit the data in the RAM, you can try to crop the stack to smaller size, i.e. only the ROI where you are interested to get the results.  
 
