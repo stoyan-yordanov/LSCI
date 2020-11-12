@@ -91,7 +91,7 @@ switch(NumericalMethod)
     case 'SumsVec-Discrete' % Variant 3 --> ZWindowSizeFrames discrete steps
         rtrnXYZLSPContrast = tLASCASumsVectorized3(InXYZFrames, ZWindowSizePx);    
     otherwise
-        frintf('\n\nUnsupported numerical method --> %s\n', NumericalMethod);
+        fprintf('\n\nUnsupported numerical method --> %s\n', NumericalMethod);
         error('Exit due to error!');
 end
 
