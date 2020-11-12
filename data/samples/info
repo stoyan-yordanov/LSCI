@@ -5,6 +5,7 @@ File: 01.Aphid_NA=0.1_M=4x_xyz=600x350x100_t=4ms_fps=250_pol=parallel_bd=Y8.tiff
 NA = Numerical aperture = 0.1
 M = Magnification = 4
 xyz = stack size = 600(width) px X 350(height) px X 100(depth/time) frames
-fps = frames per seconds = 250 fps
+t = camera exposure time = 4 ms
+fps = camera frames per seconds = 250 fps
 pol = polarization of excitation and detection = parallel
 bd = image(s) bit depth = 8 bits
