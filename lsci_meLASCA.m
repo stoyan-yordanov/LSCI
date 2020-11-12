@@ -1,7 +1,7 @@
 function lsci_meLASCA(InputFile, StartFrame, EndFrame, CamExposureTime, MultiExposureAlgorithm, MultiExposureGroupFrames, FrameRate, PixelXY, XYWindowSizePx, WavelengthUm, NA, FitMethodForVelocity)
 % Read input (video or images), analyse laser speckle by Multiexposure Laser Speckle Contrast Analysis
 % Algorithm is based on the following paper: 
-% Oliver Thomson et al, "Tissue perfusion measurements: multiple-exposure laser speckle analysis generates laser Doppler–like spectra", DOI: https://doi.org/10.1117/1.3400721
+% Oliver Thomson et al, "Tissue perfusion measurements: multiple-exposure laser speckle analysis generates laser Dopplerâ€“like spectra", DOI: https://doi.org/10.1117/1.3400721
 % Function parameters:
 % InputFile = file name of the input data (if empty brings command line file dialog) - supports avi (video) | mj2 (video Motion Jpeg 2000) | tiff (multipage)
 % Process between StartFrame and EndFrame frames.
@@ -76,8 +76,8 @@ saveLspData(dataLSP, InputFile, PixelXY, XYWindowSizePx, CamExposureTime, FrameR
 elapsedTime = toc(startTime);
 
 fprintf('\n\nEnd of processing --> Start Frame = %d, End Frame = %d\n', StartFrame, EndFrame); % show progress
-%fprintf('Statistics --> V (single flow) = %.3f ± %.3f [mm/s]\n', vMmps.value, (vMmps.upper - vMmps.lower)/2); % show stat
-%fprintf('Statistics --> V0 = %.3f ± %.3f [mm/s], Vd = %.3f ± %.3f [mm/s]\n', v0Mmps.value, (v0Mmps.upper - v0Mmps.lower)/2, vdMmps.value, (vdMmps.upper - vdMmps.lower)/2); % show stat
+%fprintf('Statistics --> V (single flow) = %.3f Â± %.3f [mm/s]\n', vMmps.value, (vMmps.upper - vMmps.lower)/2); % show stat
+%fprintf('Statistics --> V0 = %.3f Â± %.3f [mm/s], Vd = %.3f Â± %.3f [mm/s]\n', v0Mmps.value, (v0Mmps.upper - v0Mmps.lower)/2, vdMmps.value, (vdMmps.upper - vdMmps.lower)/2); % show stat
 fprintf('Processing time = %f [sec]\n\n', elapsedTime);
 
 end
@@ -398,7 +398,7 @@ for i = 1:numGlobalTimePoints
     
     % Use FFT
     %fftCt = fft(CtTau); % PSD is the FFT of Ct(tau)
-    %rtrnLspPSD(i).PsdAmplitude(1:numTauPoints) = real(fftCt); % PSD amplitude
+    %rtrnLspPSD(i).PsdAmplitude(1:numPointsTau) = real(fftCt); % PSD amplitude
         
     elapsedTime = toc(startTime);
     progressPercentage = (i/numGlobalTimePoints)*100;
