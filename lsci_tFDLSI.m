@@ -93,9 +93,9 @@ elapsedTime = toc(startTime);
 
 fprintf('\n\nEnd of processing --> Start Frame = %d, End Frame = %d\n', StartFrame, EndFrame); % show progress
 fprintf('Statistics Correlation Time --> (All) Max Tc = %.3g [s], Min Tc (all) = %.3g [s]\n', maxTc, minTc); % show stat
-fprintf('Statistics Correlation Time Pixel[%d, %d, %d] --> Tc = %.3g ± %.3g [s]\n', pixY, pixX, pixZ, dataLSP.CorrelationTime.value(pixX, pixY, pixZ), (dataLSP.CorrelationTime.upper(pixX, pixY, pixZ) - dataLSP.CorrelationTime.lower(pixX, pixY, pixZ))/2); % show stat
+fprintf('Statistics Correlation Time Pixel[%d, %d, %d] --> Tc = %.3g Â± %.3g [s]\n', pixY, pixX, pixZ, dataLSP.CorrelationTime.value(pixX, pixY, pixZ), (dataLSP.CorrelationTime.upper(pixX, pixY, pixZ) - dataLSP.CorrelationTime.lower(pixX, pixY, pixZ))/2); % show stat
 fprintf('Statistics Velocity --> Max V (all) = %.3f [mm/s], Max. Vs/V0/Vd = %.3f/%.3f/%.3f [mm/s]\n', maxV, maxVs, maxV0, maxVd); % show stat
-fprintf('Statistics Velocity Pixel[%d, %d, %d] --> Vs = %.3f ± %.3g [mm/s], V0 = %.3f ± %.3g [mm/s], Vd = %.3f ± %.3g [mm/s]\n', pixY, pixX, pixZ,...
+fprintf('Statistics Velocity Pixel[%d, %d, %d] --> Vs = %.3f Â± %.3g [mm/s], V0 = %.3f Â± %.3g [mm/s], Vd = %.3f Â± %.3g [mm/s]\n', pixY, pixX, pixZ,...
     dataLSP.Velocity.vs.value(pixX, pixY, pixZ), (dataLSP.Velocity.vs.upper(pixX, pixY, pixZ) + dataLSP.Velocity.vs.lower(pixX, pixY, pixZ))/2,...
     dataLSP.Velocity.v0.value(pixX, pixY, pixZ), (dataLSP.Velocity.v0.upper(pixX, pixY, pixZ) + dataLSP.Velocity.v0.lower(pixX, pixY, pixZ))/2,...
     dataLSP.Velocity.vd.value(pixX, pixY, pixZ), (dataLSP.Velocity.vd.upper(pixX, pixY, pixZ) + dataLSP.Velocity.vd.lower(pixX, pixY, pixZ))/2); % show stat
@@ -123,7 +123,7 @@ switch(NumericalMethod)
     case 'xcov' % calc using buit in matalb covariance xcov() function
         rtrnCtTau = tAutoCovarianceXcov(InXYZFrames, ZWindowSizeFrames, FrameRate);
     otherwise
-        frintf('\n\nUnsupported numerical method: %s\', NumericalMethod);
+        fprintf('\n\nUnsupported numerical method: %s\', NumericalMethod);
         error('Exit due to the above error!');
 end
 
@@ -150,7 +150,7 @@ iZBegin = 1;
 %parfor (iZ = 1:fitLengthZ, workerThreads) % parallel for-loop through frames
 for iT = 1:lengthT % loop as many times as ZWindowSizeFrames fits in all available frames
     startTime = tic;
-    % Calc autocovariance Ct(tau) = <I°(t)I(t+tau)> - <I>^2
+    % Calc autocovariance Ct(tau) = <IÂ°(t)I(t+tau)> - <I>^2
     for iX = 1:lengthX % loop through image height
         for iY = 1:lengthY % loop through image width
             subFrame = InXYZFrames(iX, iY, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
@@ -196,7 +196,7 @@ iZBegin = 1;
 %parfor (iZ = 1:fitLengthZ, workerThreads) % parallel for-loop through frames
 for iT = 1:lengthT % loop as many times as ZWindowSizeFrames fits in all available frames
     startTime = tic;    
-    % Calc autocovariance Ct(tau) = <I°(t)I(t+tau)> - <I>^2
+    % Calc autocovariance Ct(tau) = <IÂ°(t)I(t+tau)> - <I>^2
     for iX = 1:lengthX % loop through image height
         for iY = 1:lengthY % loop through image width
             subFrame = InXYZFrames(iX, iY, iZBegin:(iZBegin+ZWindowSizeFrames-1)); % extract subframe given by the window size
