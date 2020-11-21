@@ -2,7 +2,7 @@
 
 ## Summary
 
-The LSCI Toolbox is a command line tool written in Matlab that can process raw LSCI image(s) data and extract contrast (K) map, tc )(correlation time) map, velocity (V) map and other useful data.
+The LSCI Toolbox is a command line tool written in Matlab that can process raw LSCI image(s) and extract contrast K map, correlation time tc map, velocity V map and other useful data.
 
 The LSCI toolbox contains series of scripts and functions that implement the main LASCA (Laser Speckle Contrast Analysis) methods - sLASCA (Spatial LASCA), stLASCA (Spatio-Temporal LASCA), tLASCA (Temporal LASCA), meLASCA (Multi-exposure LASCA). 
 
