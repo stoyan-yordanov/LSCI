@@ -1,6 +1,6 @@
 Sample file(s) acquired with laser speckle illumination. They can be used for initial playing with the LSCI Toolbox.
 
-File: 01.Aphid_NA=0.1_M=4x_xyz=600x350x100_t=4ms_fps=250_pol=parallel_bd=Y8.tiff
+1) File 1: 01.Aphid_NA=0.1_M=4x_xyz=600x350x100_t=4ms_fps=250_pol=parallel_bd=Y8.tiff
 
 NA = Numerical aperture = 0.1
 M = Magnification = 4
@@ -9,3 +9,10 @@ t = camera exposure time = 4 ms
 fps = camera frames per seconds = 250 fps
 pol = polarization of excitation and detection = parallel
 bd = image(s) bit depth = 8 bits
+
+2) File 2: 02.RawLaserSpeckle_xyz=260x214x51_t=10ms.tiff
+
+Video taken from (Media 2, see Figure 6 for details):
+
+Article Title: "Quantitative laser speckle flowmetry of the in vivo microcirculation using sidestream dark field microscopy"
+Article DOI: https://doi.org/10.1364/BOE.4.002347
