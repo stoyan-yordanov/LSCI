@@ -8,9 +8,11 @@ The LSCI toolbox contains series of scripts and functions that implement the mai
 
 It also contains few other methods that might be of interest - tFDLSI (Temporal Frequency Domain Laser Speckle Imaging), teLASEA (Temporal Entropy Laser Speckle Entropy Analysis), fftLSA (Fourier Transform Laser Speckle Analysis).
 
-It also contains some helper scripts/functions that facilitate pre- or post-processing steps, for example. converting a video to a multi-page tiff file (3D stack) for easy inspection with ImageJ or the like.
+It also contains some helper scripts/functions that facilitate pre- or post-processing steps. For example, converting a video to a multi-page tiff file (3D stack) for easy inspection with ImageJ or the like.
 
-Below follows more information and explanation on using the toolbox.
+Initially the LSCI toolbox was created and used for processing the data in the paper: "Real-time monitoring of biomechanical activity in aphids by laser speckle contrast imaging" (Optics Express Vol. 29, Issue 18, pp. 28461-28480 (2021), DOI: https://doi.org/10.1364/OE.431989). The main reason for creating and later making the code publically available is the lack of such existing code that can do the respective LSCI data processing. So I decided to write such tool and make it available for everybody intrested or needing to process LSCI data.
+
+Below follows more information and explanation on using the toolbox. 
 
 ## Introduction
 
