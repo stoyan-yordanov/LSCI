@@ -257,19 +257,19 @@ Explanation of the output - output is 4 files with specific ending attached to t
 
 ## References and Literature
 
-1. W. James Tom et al, "Efficient Processing of Laser Speckle Contrast Images", DOI: https://doi.org/10.1109/TMI.2008.925081
-2. Julio C. Ramirez-San-Juan et al, "Impact of velocity distribution assumption on simplified laser speckle imaging equation ", DOI: https://doi.org/10.1364/OE.16.003197
-3. P. Miao et al, "Random process estimator for laser speckle imaging of cerebral blood flow", DOI: https://doi.org/10.1364/OE.18.000218
-4. Oliver Thomson et al, "Tissue perfusion measurements: multiple-exposure laser speckle analysis generates laser Doppler-like spectra", DOI: https://doi.org/10.1117/1.3400721
-5. Hao Li et al, "Directly measuring absolute flow speed by frequency-domain laser speckle imaging", DOI: https://doi.org/10.1364/OE.22.021079
-6. Tomi Smausz et al, "Real correlation time measurement in laser speckle contrast analysis using wide exposure time range images", DOI: https://doi.org/10.1364/AO.48.001425
-7. Ashwin B. Parthasarathy et al, "Robust flow measurement with multi-exposure speckle imaging", DOI: https://doi.org/10.1364/OE.16.001975
-8. Ping Kong et al, "A novel highly efficient algorithm for laser speckle imaging", DOI: https://doi.org/10.1016/j.ijleo.2016.04.004
-9. S. Kazmi et al, "Evaluating multi-exposure speckle imaging estimates of absolute autocorrelation times", DOI: https://doi.org/10.1364/OL.40.003643
-10. D. Boas et al, "Laser speckle contrast imaging in biomedical optics", DOI: https://doi.org/10.1117/1.3285504
-11. Mitchell A. Davis et al, "Sensitivity of laser speckle contrast imaging to flow perturbations in the cortex", DOI: https://doi.org/10.1364/BOE.7.000759
-12. Ashwin B. Parthasarathy et al, "Quantitative imaging of ischemic stroke through thinned skull in mice with Multi Exposure Speckle Imaging", DOI: https://doi.org/10.1364/BOE.1.000246
-13. Annemarie Nadort et al, "Quantitative laser speckle flowmetry of the in vivo microcirculation using sidestream dark field microscopy", DOI: https://doi.org/10.1364/BOE.4.002347
-14. Peng Miao et al, "Entropy analysis reveals a simple linear relation", DOI: http://dx.doi.org/10.1364/OL.39.003907
-15. Juan A Bonachela et al, "Entropy estimates of small data sets", DOI: http://dx.doi.org/10.1088/1751-8113/41/20/202001
- 
+1. Stoyan Yordanov et al, "Real-time monitoring of biomechanical activity in aphids by laser speckle contrast imaging", DOI: https://doi.org/10.1364/OE.431989)
+2. W. James Tom et al, "Efficient Processing of Laser Speckle Contrast Images", DOI: https://doi.org/10.1109/TMI.2008.925081
+3. Julio C. Ramirez-San-Juan et al, "Impact of velocity distribution assumption on simplified laser speckle imaging equation ", DOI: https://doi.org/10.1364/OE.16.003197
+4. P. Miao et al, "Random process estimator for laser speckle imaging of cerebral blood flow", DOI: https://doi.org/10.1364/OE.18.000218
+5. Oliver Thomson et al, "Tissue perfusion measurements: multiple-exposure laser speckle analysis generates laser Doppler-like spectra", DOI: https://doi.org/10.1117/1.3400721
+6. Hao Li et al, "Directly measuring absolute flow speed by frequency-domain laser speckle imaging", DOI: https://doi.org/10.1364/OE.22.021079
+7. Tomi Smausz et al, "Real correlation time measurement in laser speckle contrast analysis using wide exposure time range images", DOI: https://doi.org/10.1364/AO.48.001425
+8. Ashwin B. Parthasarathy et al, "Robust flow measurement with multi-exposure speckle imaging", DOI: https://doi.org/10.1364/OE.16.001975
+9. Ping Kong et al, "A novel highly efficient algorithm for laser speckle imaging", DOI: https://doi.org/10.1016/j.ijleo.2016.04.004
+10. S. Kazmi et al, "Evaluating multi-exposure speckle imaging estimates of absolute autocorrelation times", DOI: https://doi.org/10.1364/OL.40.003643
+11. D. Boas et al, "Laser speckle contrast imaging in biomedical optics", DOI: https://doi.org/10.1117/1.3285504
+12. Mitchell A. Davis et al, "Sensitivity of laser speckle contrast imaging to flow perturbations in the cortex", DOI: https://doi.org/10.1364/BOE.7.000759
+13. Ashwin B. Parthasarathy et al, "Quantitative imaging of ischemic stroke through thinned skull in mice with Multi Exposure Speckle Imaging", DOI: https://doi.org/10.1364/BOE.1.000246
+14. Annemarie Nadort et al, "Quantitative laser speckle flowmetry of the in vivo microcirculation using sidestream dark field microscopy", DOI: https://doi.org/10.1364/BOE.4.002347
+15. Peng Miao et al, "Entropy analysis reveals a simple linear relation", DOI: http://dx.doi.org/10.1364/OL.39.003907
+16. Juan A Bonachela et al, "Entropy estimates of small data sets", DOI: http://dx.doi.org/10.1088/1751-8113/41/20/202001
