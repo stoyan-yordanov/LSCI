@@ -16,7 +16,7 @@ Below follows more information and explanation on using the toolbox.
 
 ## Introduction
 
-The LSCI Toolbox was written by me for a scientific article in order to process LSCI raw data the respective experiment generated. This toolbox is part of the paper, therefore making it public. Also, I decided to share it with the public since at the time I could not find any similar software that can process raw LSCI data and extract contrast, correlation time and velocity maps. So this toolbox might be helpful for other people as well.
+The LSCI Toolbox was written by me for a scientific article in order to process LSCI raw data that the respective experiments generated. This toolbox is part of the paper, therefore making it public. Also, I decided to share it with the public since at the time I could not find any similar software that can process raw LSCI data and extract contrast, correlation time and velocity maps. So this toolbox might be helpful for other people as well.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ The toolbox was written and tested with Matlab 2019a (Windows 10, x64). To run t
 - Curve Fitting Toolbox
 - Signal Processing Toolbox
 
-If you use big 3D stacks you will need a PC with enough RAM to load and process the stacks. RAM with 32 GB will allow to comfortably work with big stacks of images. A stack of 1000 images with size of 1000x1000 px and 16-bit depth will occupy in the RAM 2 GB. Note also that the toolbox produces output stacks for K map, tc map, V map, which are almost as big as the input stack size. Thus, the RAM usage will increase 4x, plus Matlab, the OS, the open applications will occupy additional space (few GB). Therefore, loading and processing big chunks of data might be a problem on low RAM PCs. In case of problems, to fit the data in the RAM, you can try to crop the stack to smaller size, i.e. only the ROI where you are interested to get the results.  
+If you use big 3D stacks you will need a PC with enough RAM to load and process the stacks. A PC with 32 GB RAM will allow to comfortably work with big stacks of images. A stack of 1000 images with the size of 1000x1000 px and 16-bit depth will occupy in the 2 GB in the RAM. Note also that the toolbox produces output stacks for K map, tc map, V map, which are almost as big as the input stack size. Thus, the RAM usage will increase 4x, plus add to this Matlab itself, the OS, the open applications and it will occupy additional space (few more GB). Therefore, loading and processing big chunks of data might be a problem on low RAM PCs. In case of problems, to fit the data in the RAM, you can try to crop the stack to smaller size, i.e. only the ROI where you are interested to get the results.  
 
 ## LASCA Functions and Directory Structure
 
@@ -53,7 +53,7 @@ It follows short explanation of the directory structure and scripts/functions:
 - 'scripts/' --> some useful scripts for plotting results of LASCA analysis
 - 'sim/' --> functions that simulate laser speckle (note: only 'sim/lsci_gnrLaserSpeckle3D.m' works correctly)
 - 'system/' --> helper functions to interact with the system
-- 'tools/' --> helper functions (not used by the LASCA methods) to analyze laser speckle statistics properties etc
+- 'tools/' --> helper functions (not used by the LASCA methods) to analyze laser speckle statistical properties etc
 
 ## Usage - How It Works
 
@@ -62,6 +62,20 @@ All main LSACA methods implemented are in the root directory. The functions do n
 In the 'data/samples/' directory there is some example of LSCI laser speckle image stack that can be used for initial play and tests. Note: most of the code is very well documented and commented so that it is relatively easy to understand what is going on and why inside the code.
 
 Below are given examples how to use the LASCA functions. Before running a LASCA function go to the directory where the LSCI data is located.
+
+Depending on the LASCA algorithm one uses there could be a decrease in spatial and/or temporal resolution. For example, the three major algorithms - sLASCA (Spatial LASCA), tsLASCA (Temporal LASCA), and stLASCA (Spatio-Temporal LASCA) make different use of the available pixels and frames. 
+
+The sLASCA uses a 2D pixel window (e.g. 5x5 = 25 pixels) to calculate the speckle contrast K, which means it assigns a single K value to a group of pixels (using their intensities), which is basically kind of binning all pixel in the given window to get one speckle contrast value K. When we have such calculation of K we lose spatial resolution for the K map. This means the output K image will be with decreased resolution compare the input intensity image.
+
+The tLASCA is similar to sLASCA, but in time - i.e. we lose temporal resolution to calculate K, but we preserve the spatial resolution of the K map.
+
+The stLASCA is a combination between sLASCA and tLASCA, so you lose spatial and temporal resolution at the same time, but less than the pure spatial or temporal LASCA algorithms.
+
+Further notes:
+
+The choice of the exposure time value in sLASCA/tLASCA/stLASCA might be improtant to obtain good results. According to my experience and to decrease the error in estimating K the best is to have long exposure times so that the resulting contrast value K is below < 0.5, ideally even below < 0.1. If the contrast K is too high it means nothing changed in the speckle and then calculating K statistically is with very big uncertainty (one might even get K > 1). So values of K > 0.5 would be a clear sign that you need longer exposure time to obtain K with good statistical accuracy. Therefore, choose an exposure time such that you see big variations in speckle pattern from one frame to another (this is the rule of thumb).
+
+Also in the paper above related to the LSCI Toolbox I explain in detail the theory and quirks of the LSCI so that one can get a better idea how to use the toolbox. The detailed explanation that is worth reading is in the Supporting Information - I strongly recommend reading it, because it is like a review and tutorial of LSCI for newbies, and I wrote it for myself, otherwise the information about LSCI is scattered in many papers. I am an optical microscopy guy, but not an expert in LSCI - I had to use it in one project that resulted in a paper related to LSCI, and decided to put all important LSCI theory in one document (the SI) for future references if needed. This is why it will be useful for everybody starting with LSCI, and this is why I wrote the LSCI Toolbox, because at that time I could not find anything useful as available LSCI software tools.
 
 ###### Example 1: Usage of Spatial LASCA:
 
@@ -83,7 +97,7 @@ Explanation of the arguments of the function:
 - arg 9: NA = 0.1 --> numerical aperture of the objective/lens
 - arg 10: Magnification = 4 --> magnification of the optical system
 
-Explanation of the output - output is 4 files with specific ending attached to the original file name to indicate the type of output:
+Explanation of the output - output consists of 4 files with specific ending attached to the original file name to indicate the type of output:
 - 'sLSC.dat': summary of the used input parameters and statistics
 - 'sLSC-k.tiff': contrast K map as an image stack (width and height are a bit smaller than the original), K values are represented as pixel intensity values; K is normalized so that max pixel value (16 bit depth) = max K value in the stack (it means if max K in the stack was K = 1, then in the image file its value as i pxel value is = 2^16 - 1 = 65535)
 - 'sLSC-tc.tiff': (de)-correlation time tc map as an image stack (calculated from contrast, the same normalization is applied as for K); tc = TK^2 (T = cam exosure time, tc = (de-)correlation time, K = contrast), valid for T > 2tc
